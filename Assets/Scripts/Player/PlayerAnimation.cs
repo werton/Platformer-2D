@@ -8,8 +8,6 @@ public class PlayerAnimation : MonoBehaviour
     private const string AnimationJump = "jump";
     private const string AnimationFall = "fall";
     private const string AnimationHurt = "hurt";
-
-
     private Animator _animator;
 
 
