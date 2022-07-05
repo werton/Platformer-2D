@@ -3,42 +3,44 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
+    private const string AnimationIdle = "idle";
+    private const string AnimationWalking = "walking";
+    private const string AnimationJump = "jump";
+    private const string AnimationFall = "fall";
+    private const string AnimationHurt = "hurt";
+
+
     private Animator _animator;
+
 
     public void SetIdle()
     {
-        _animator.SetBool("idle", true);
-        _animator.SetBool("walking", false);
-        _animator.SetBool("falling", false);
-        _animator.SetBool("jumping", false);
+        _animator.SetBool(AnimationIdle, true);
+        _animator.SetBool(AnimationWalking, false);
     }
 
     public void SetWalk()
     {
-        _animator.SetBool("walking", true);
-        _animator.SetBool("idle", false);
-        _animator.SetBool("falling", false);
-        _animator.SetBool("jumping", false);
+        _animator.SetBool(AnimationWalking, true);
+        _animator.SetBool(AnimationIdle, false);
     }
 
     public void SetHurt()
     {
-        _animator.SetBool("hurt", true);
+        _animator.SetBool(AnimationHurt, true);
     }
 
     public void SetFall()
     {
-        _animator.SetBool("falling", true);
-        _animator.SetBool("idle", false);
-        _animator.SetBool("jumping", false);
+        _animator.SetTrigger(AnimationFall);
+        _animator.SetBool(AnimationIdle, false);
     }
 
     public void SetJump()
     {
-        _animator.SetBool("jumping", true);
-        _animator.SetBool("falling", false);
-        _animator.SetBool("idle", false);
-        _animator.SetBool("walking", false);
+        _animator.SetTrigger(AnimationJump);
+        _animator.SetBool(AnimationIdle, false);
+        _animator.SetBool(AnimationWalking, false);
     }
 
     private void Awake()

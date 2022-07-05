@@ -5,7 +5,7 @@ public class CollectableObject : TouchableObject
 {
     [SerializeField] private AudioSource _audioSource;
 
-    protected override void OnTouch()
+    public override void OnTouch()
     {
         _audioSource.Play();
         StartCoroutine(DestroyOnSoundStop());

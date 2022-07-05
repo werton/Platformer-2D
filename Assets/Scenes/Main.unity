@@ -7507,7 +7507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb8977588de8ce4f83346f5f38ccd64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  _maxHealth: 10
 --- !u!114 &753058701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7628,8 +7628,9 @@ GameObject:
   - component: {fileID: 906792249}
   - component: {fileID: 906792254}
   - component: {fileID: 906792253}
-  - component: {fileID: 906792252}
   - component: {fileID: 906792251}
+  - component: {fileID: 906792255}
+  - component: {fileID: 906792252}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -7728,9 +7729,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 906792248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5889e913478a4248bf2e195c0dc9936, type: 3}
+  m_Script: {fileID: 11500000, guid: 737d5fda6230dce44afb58211135d2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 7192067858424810143, guid: 0a9fcdb648fc68e4298890cd9a47e7bf, type: 3}
 --- !u!61 &906792253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7776,6 +7778,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &906792255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906792248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5889e913478a4248bf2e195c0dc9936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &946003809
 GameObject:
   m_ObjectHideFlags: 0

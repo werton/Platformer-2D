@@ -6,7 +6,7 @@ public class TouchableObject : MonoBehaviour
 {
     public event UnityAction Touched;
 
-    protected virtual void OnTouch()
+    public virtual void OnTouch()
     {
     }
 

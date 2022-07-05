@@ -3,15 +3,21 @@ using UnityEngine.Events;
 
 public class DamageableObject : MonoBehaviour
 {
-    [SerializeField] private int _health = 10;
+    [SerializeField] private int _maxHealth = 10;
+
+    private int _health;
+
 
     public event UnityAction DamageReceived;
 
     public event UnityAction Died;
 
-    public bool IsAlive()
+    public bool IsAlive => (_health > 0);
+    
+
+    private void Start()
     {
-        return _health > 0;
+        _health = _maxHealth;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,7 +36,9 @@ public class DamageableObject : MonoBehaviour
             return;
         }
 
-        _health = _health > damageValue ? (_health - damageValue) : 0;
+        _health -= damageValue;
+
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
 
         DamageReceived?.Invoke();
 

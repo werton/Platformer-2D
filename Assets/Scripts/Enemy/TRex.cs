@@ -43,7 +43,7 @@ public class TRex : MonoBehaviour
 
     private void Die()
     {
-        if (GetState() != State.Died)
+        if (_state != State.Died)
         {
             SetState(State.Died);
             _spawner.SpawnInAllPoints();
@@ -52,7 +52,7 @@ public class TRex : MonoBehaviour
 
     private void Update()
     {
-        if (GetState() != State.Died)
+        if (_state != State.Died)
         {
             if (GetTargetDistance(_player).magnitude < _bitingDistance)
             {
@@ -69,11 +69,6 @@ public class TRex : MonoBehaviour
     private Vector2 GetTargetDistance(EnemyTarget target)
     {
         return transform.position - target.transform.position;
-    }
-
-    private State GetState()
-    {
-        return _state;
     }
 
     private void SetState(State state)
