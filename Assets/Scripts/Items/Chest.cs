@@ -7,7 +7,7 @@ public class Chest : TouchableSpawner
 
     [SerializeField] private Animator _animator;
 
-    private void Start()
+    private void OnEnable()
     {
         _animator = GetComponent<Animator>();
 
@@ -19,7 +19,7 @@ public class Chest : TouchableSpawner
         _animator.SetTrigger(OpenAnimation);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         Body.Touched -= PlayAnimation;
     }
