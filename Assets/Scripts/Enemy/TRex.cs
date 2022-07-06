@@ -35,10 +35,16 @@ public class TRex : MonoBehaviour
         _spawner = GetComponent<Spawner>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SetState(State.Walk);
         _damageble.Died += Die;
+    }
+
+    private void OnDisable()
+    {
+
+        _damageble.Died -= Die;
     }
 
     private void Die()
