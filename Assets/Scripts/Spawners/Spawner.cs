@@ -6,17 +6,17 @@ public class Spawner : MonoBehaviour
 
     private Transform[] _spawnPoints;
 
+    private void Awake()
+    {
+        CreateSpawnPoints();
+    }
+
     public void SpawnInAllPoints()
     {
         foreach (Transform point in transform)
         {
             SpawnInPoint(point);
         }
-    }
-
-    private void Awake()
-    {
-        CreateSpawnPoints();
     }
 
     private void CreateSpawnPoints()

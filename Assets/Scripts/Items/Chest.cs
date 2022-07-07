@@ -14,13 +14,13 @@ public class Chest : TouchableSpawner
         Body.Touched += PlayAnimation;
     }
 
-    private void PlayAnimation()
-    {
-        _animator.SetTrigger(OpenAnimation);
-    }
-
     private void OnDisable()
     {
         Body.Touched -= PlayAnimation;
+    }
+
+    private void PlayAnimation()
+    {
+        _animator.SetTrigger(OpenAnimation);
     }
 }
