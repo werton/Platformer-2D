@@ -24,8 +24,7 @@ public class DamageableObject : MonoBehaviour
     {
         if (collision.collider.TryGetComponent<KineticWeapon>(out KineticWeapon weapon))
         {
-            int damage = weapon.GetDamage();
-            ReceiveDamage(damage);
+            ReceiveDamage(weapon.GetDamage());
         }
     }
 

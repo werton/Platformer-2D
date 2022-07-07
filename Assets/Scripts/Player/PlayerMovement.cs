@@ -35,15 +35,15 @@ public class PlayerMovement : MonoBehaviour
         _groundDetector = GetComponent<GroundDetector>();
     }
 
+    private void FixedUpdate()
+    {
+        MoveHorizontal();
+    }
+
     private void Update()
     {
         Handleinput();
         UpdateState();
-    }
-
-    private void FixedUpdate()
-    {
-        MoveHorizontal();
     }
 
     private void Handleinput()

@@ -10,6 +10,10 @@ public class PlayerAnimation : MonoBehaviour
     private const string AnimationHurt = "hurt";
     private Animator _animator;
 
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void SetIdle()
     {
@@ -39,10 +43,5 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetTrigger(AnimationJump);
         _animator.SetBool(AnimationIdle, false);
         _animator.SetBool(AnimationWalking, false);
-    }
-
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
     }
 }

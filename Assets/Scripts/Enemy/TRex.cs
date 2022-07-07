@@ -8,7 +8,7 @@ public class TRex : MonoBehaviour
 {
     private const string AnimationBite = "bite";
     private const string AnimationDied = "died";
-    private const float _bitingDistance = 6f;
+    private const float BitingDistance = 6f;
 
     [SerializeField] private EnemyTarget _player;
 
@@ -47,20 +47,11 @@ public class TRex : MonoBehaviour
         _damageble.Died -= Die;
     }
 
-    private void Die()
-    {
-        if (_state != State.Died)
-        {
-            SetState(State.Died);
-            _spawner.SpawnInAllPoints();
-        }
-    }
-
     private void Update()
     {
         if (_state != State.Died)
         {
-            if (GetTargetDistance(_player).magnitude < _bitingDistance)
+            if (GetTargetDistance(_player).magnitude < BitingDistance)
             {
                 _spriteRenderer.flipX = transform.position.x < _player.transform.position.x;
                 SetState(State.Bite);
@@ -69,6 +60,15 @@ public class TRex : MonoBehaviour
             {
                 SetState(State.Walk);
             }
+        }
+    }
+
+    private void Die()
+    {
+        if (_state != State.Died)
+        {
+            SetState(State.Died);
+            _spawner.SpawnInAllPoints();
         }
     }
 

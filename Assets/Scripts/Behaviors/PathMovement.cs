@@ -12,16 +12,6 @@ public class PathMovement : MonoBehaviour
     private int _currentPoint;
     private bool _isMoving = true;
 
-    public void StopMoving()
-    {
-        _isMoving = false;
-    }
-
-    public void StartMoving()
-    {
-        _isMoving = true;
-    }
-
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,6 +25,16 @@ public class PathMovement : MonoBehaviour
         {
             MovePath();
         }
+    }
+
+    public void StopMoving()
+    {
+        _isMoving = false;
+    }
+
+    public void StartMoving()
+    {
+        _isMoving = true;
     }
 
     private void CreatePath()
